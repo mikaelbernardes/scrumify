@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int       @id @default(autoincrement())
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime?
+  username     String    @unique
+  email        String    @unique
+  password     String
+  company      String    @unique
+  name         String
+  document     String
+  country      String
+  state        String
+  city         String
+  neighborhood String
+  street       Int
+  streetNumber String
+  complement   String
+  role         Role      @default(MANAGER)
+  project      Project[]
+}
+
+model Project {
+  id          Int       @id @default(autoincrement())
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime?
+  name        String
+  description String?
+  member      User[]
+  sprint      Sprint[]
+}
+
+model Sprint {
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime?
+  projectId Int
+  project   Project?  @relation(fields: [projectId], references: [id])
+  name      String
+  task      Task[]
+}
+
+model Task {
+  id          Int       @id @default(autoincrement())
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime?
+  name        String
+  description String?
+  text        String
+  sprintId    Int
+  sprint      Sprint?   @relation(fields: [sprintId], references: [id])
+  statusId    Int
+  status      Status?   @relation(fields: [statusId], references: [id])
+}
+
+model Status {
+  id          Int     @id @default(autoincrement())
+  name        String
+  description String?
+  task        Task[]
+}
+
+enum Role {
+  MANAGER
+  ADMIN
+  FRONTEND_DEVELOPER
+  BACKEND_DEVELOPER
+  FULLSTACK_DEVELOPER
+  QUALITY_ASSURANCE
+  ANALIST
+}
