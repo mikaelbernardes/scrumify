@@ -8,25 +8,27 @@ datasource db {
 }
 
 model User {
-  id           Int       @id @default(autoincrement())
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime?
-  username     String    @unique
-  email        String    @unique
-  password     String
-  company      String    @unique
-  name         String
-  document     String
-  country      String
-  state        String
-  city         String
-  neighborhood String
-  street       Int
-  streetNumber String
-  complement   String
-  refreshToken String?
-  role         Role      @default(MANAGER)
-  project      Project[]
+  id                 Int       @id @default(autoincrement())
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime?
+  username           String    @unique
+  email              String    @unique
+  password           String
+  company            String    @unique
+  name               String
+  lastUsernameChange DateTime? @default(now())
+  image              String?
+  document           String
+  country            String
+  state              String
+  city               String
+  neighborhood       String
+  street             Int
+  streetNumber       String
+  complement         String
+  refreshToken       String?
+  role               Role      @default(MANAGER)
+  project            Project[]
 }
 
 model Project {
