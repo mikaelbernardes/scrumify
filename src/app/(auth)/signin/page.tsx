@@ -7,7 +7,6 @@ import { signinSchema, type SigninTypeSchema } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@UI/input";
 import { Button } from "@UI/button";
-import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { toast } from "sonner";
