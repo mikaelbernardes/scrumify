@@ -13,7 +13,7 @@ export default function SignUpLayout({ children }: { children: React.ReactNode }
 		resolver: zodResolver(signupSchema),
 		defaultValues: {
 			accountSignupSchema: {
-				companyName: "",
+				name: "",
 				email: "",
 				username: "",
 				password: "",

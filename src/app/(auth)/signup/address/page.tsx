@@ -15,16 +15,7 @@ export default function Address() {
 	const formContext = useFormContext<SignupTypeSchema>();
 	const form = useForm<AddressSignupTypeSchema>({
 		resolver: zodResolver(addressSignupSchema),
-		defaultValues: {
-			city: "",
-			complement: "",
-			country: "",
-			neighborhood: "",
-			state: "",
-			street: "",
-			streetNumber: "",
-			zipCode: "",
-		},
+		defaultValues: formContext.getValues("addressSignupSchema"),
 	});
 
 	const { push } = useRouter();

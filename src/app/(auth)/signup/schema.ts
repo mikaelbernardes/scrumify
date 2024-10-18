@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const accountSignupSchema = z.object({
-	companyName: z.string().min(1, "Campo obrigatório"),
+	name: z.string().min(1, "Campo obrigatório"),
 	username: z.string().min(1, "Campo obrigatório"),
 	email: z.string().email(),
 	password: z.string().min(1, "Campo obrigatório"),

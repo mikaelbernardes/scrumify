@@ -34,10 +34,10 @@ export default function Account() {
 				className="w-full flex flex-col gap-4">
 				<FormField
 					control={form.control}
-					name="companyName"
+					name="name"
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel>Nome da Empresa</FormLabel>
+							<FormLabel>Nome</FormLabel>
 							<FormControl>
 								<Input
 									placeholder="Cadastre o nome da sua empresa"
