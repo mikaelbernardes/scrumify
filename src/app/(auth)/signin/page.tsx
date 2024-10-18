@@ -120,7 +120,7 @@ export default function SignIn() {
 									type="button"
 									variant="outline"
 									disabled={isPending}
-									onClick={() => push("/signup")}>
+									onClick={() => push("/signup/account")}>
 									Cadastrar
 								</Button>
 							</form>

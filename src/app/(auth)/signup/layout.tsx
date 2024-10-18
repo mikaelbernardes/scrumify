@@ -12,17 +12,25 @@ export default function SignUpLayout({ children }: { children: React.ReactNode }
 	const form = useForm<SignupTypeSchema>({
 		resolver: zodResolver(signupSchema),
 		defaultValues: {
-			firstSignupSchema: {
+			accountSignupSchema: {
 				companyName: "",
 				email: "",
 				username: "",
 				password: "",
 				confirmPassword: "",
 			},
+			addressSignupSchema: {
+				city: "",
+				complement: "",
+				country: "",
+				neighborhood: "",
+				state: "",
+				street: "",
+				streetNumber: "",
+				zipCode: "",
+			},
 		},
 	});
-
-	const onSubmit = async (data: SignupTypeSchema) => {};
 
 	return (
 		<div className="w-full py-8 min-h-screen items-center justify-center gap-8 flex flex-col ">
